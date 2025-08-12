@@ -1,3 +1,21 @@
+// Load particles.js background
+particlesJS.load('particles-js', 'particles.json', function() {
+  console.log('Particles.js loaded');
+});
+
+// Tilt effect for form
+VanillaTilt.init(document.querySelector(".contact-container"), {
+    max: 15,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.2
+});
+
+// GSAP animation for form load
+gsap.from(".contact-container", { duration: 1, opacity: 0, y: -50, ease: "power3.out" });
+
+
+// ===== Form Validation =====
 const form = document.getElementById("contactForm");
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
@@ -23,7 +41,7 @@ function validateField(input) {
         ? input.nextElementSibling 
         : input.parentElement.querySelector(".error-message");
 
-    errorElement.textContent = ""; // Clear old errors
+    errorElement.textContent = "";
 
     if (input.id === "name") {
         if (input.value.trim() === "") {
@@ -50,9 +68,9 @@ function validateField(input) {
     }
 }
 
-// Form submit validation
+// Form submit
 form.addEventListener("submit", (e) => {
-    e.preventDefault(); // Stop form from refreshing
+    e.preventDefault();
 
     let isValid = true;
     [nameInput, emailInput, messageInput].forEach(input => {

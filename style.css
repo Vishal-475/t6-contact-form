@@ -6,11 +6,20 @@
 }
 
 body {
-    background: linear-gradient(135deg, #1e90ff, #00bfff);
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #1e90ff;
 }
 
 .contact-container {
@@ -20,6 +29,7 @@ body {
     max-width: 400px;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
 .contact-container h2 {
